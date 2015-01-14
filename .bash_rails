@@ -1,0 +1,10 @@
+alias rails-s='rails server -b 0.0.0.0'
+alias rails-c='bundle exec rails c'
+
+function b-rails() {
+  bundle exec rails $*
+}
+function b-rake() {
+  bundle exec rake $*
+}
+
