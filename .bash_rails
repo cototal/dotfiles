@@ -1,4 +1,4 @@
-alias rails-s='rails server -b 0.0.0.0'
+alias rails-s='bundle exec rails server -b 0.0.0.0'
 alias rails-c='bundle exec rails c'
 
 function b-rails() {
