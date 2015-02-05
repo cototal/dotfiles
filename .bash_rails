@@ -1,5 +1,6 @@
 alias rails-s='bundle exec rails server -b 0.0.0.0'
 alias rails-c='bundle exec rails c'
+alias r-spec='bundle exec rspec spec'
 
 function b-rails() {
   bundle exec rails $*
@@ -7,4 +8,6 @@ function b-rails() {
 function b-rake() {
   bundle exec rake $*
 }
-
+function b-rspec() {
+  bundle exec rspec $*
+}
