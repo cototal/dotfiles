@@ -8,3 +8,6 @@ function b-rake() {
   bundle exec rake $*
 }
 
+function s-rails() {
+  RAILS_ENV=staging rails $*
+}
