@@ -12,6 +12,10 @@ if [ -f ~/.bash_rails ]; then
     . ~/.bash_rails
 fi
 
+if [ -f ~/.bash_projects ]; then
+    . ~/.bash_projects
+fi
+
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
