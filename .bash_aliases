@@ -1,3 +1,4 @@
+alias o='thunar .'
 alias shutdown='sudo shutdown -h now'
 alias apache='sudo service apache2 restart'
 
@@ -24,9 +25,16 @@ function coff() {
   coffee -o $1 -cw $2
 }
 
+function coffp() {
+  coffee --print $1
+}
+
 function gam() {
   git add . -A && git commit -m "$1"
 }
 function gc() {
   git checkout $1
+}
+function b() {
+  bundle exec $*
 }
