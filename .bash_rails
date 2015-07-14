@@ -4,6 +4,7 @@ alias r-spec='bundle exec rspec spec'
 alias brs='bin/rails server -b 0.0.0.0'
 alias brc='bin/rails c'
 alias brr='bin/rspec spec'
+alias pryr='pry -r ./config/environment'
 
 function b-rails() {
   bundle exec rails $*
