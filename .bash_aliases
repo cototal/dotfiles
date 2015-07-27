@@ -21,6 +21,10 @@ function folder-size() {
   du -h --max-depth=1 $1
 }
 
+function mc() {
+  mkdir $1 && cd $_
+}
+
 function coff() {
   coffee -o $1 -cw $2
 }
