@@ -42,3 +42,6 @@ function gc() {
 function b() {
   bundle exec $*
 }
+function tk() {
+  tmux kill-session -t $1
+}
