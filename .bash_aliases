@@ -9,6 +9,10 @@ alias git-log="git log --max-count=15 --pretty=format:\"%h - %an, %ar : %s\""
 
 alias cc='coffee -o lib/ -cw src/'
 
+function dmux() {
+  mux start default $1
+}
+
 function rbenv-install() {
   CONFIGURE_OPTS="--with-tcl --with-tk" rbenv install $*
 }
