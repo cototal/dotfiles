@@ -1,0 +1,6 @@
+--type-set=sourcemap=.map
+--type-set=log=.log
+--type-set=cache=.cache
+--type-set=haml=.haml
+
+--type=nolog
