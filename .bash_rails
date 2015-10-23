@@ -6,6 +6,7 @@ alias brs='bin/rails server -b 0.0.0.0'
 alias brc='bin/rails c'
 alias brr='bin/rspec spec'
 alias pryr='pry -r ./config/environment'
+alias rr='touch tmp/restart.txt'
 
 function b-rails() {
   bundle exec rails $*
