@@ -50,3 +50,7 @@ function b() {
 function tk() {
   tmux kill-session -t $1
 }
+
+function lna() {
+  sudo ln -s /home/martins/rails/$1/public $1
+}

@@ -4,3 +4,5 @@
 --type-set=haml=.haml
 
 --type=nolog
+--type=nocache
+--type=nosourcemap
