@@ -7,6 +7,7 @@ alias wacom1="xsetwacom --set 'Wacom Intuos3 9x12 pad' MapToOutput 'Virtual1'"
 alias gadd='git add . -A'
 alias gamend='git add . -A && git commit --amend --no-edit'
 alias git-log="git log --max-count=15 --pretty=format:\"%h - %an, %ar : %s\""
+alias git-comment="git commit --amend"
 
 alias cc='coffee -o lib/ -cw src/'
 
