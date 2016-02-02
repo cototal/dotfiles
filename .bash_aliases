@@ -54,3 +54,7 @@ function tk() {
 function lna() {
   sudo ln -s /home/martins/rails/$1/public $1
 }
+
+function psg() {
+  ps -ax | grep -i $1
+}
