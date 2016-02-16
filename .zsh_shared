@@ -1,0 +1,42 @@
+# Define prompt
+autoload -U colors && colors
+PROMPT="%{$fg[white]%}%c %% %{$reset_color%}"
+
+# Enable ls colors
+ls --color -d . &>/dev/null 2>&1 && alias ls='ls --color=tty' || alias ls='ls -G'
+
+# Use vim for editor and terminal
+export EDITOR='vim'
+bindkey -v
+
+# For home and end keys
+bindkey "\e[1~" beginning-of-line
+bindkey "\e[4~" end-of-line
+
+alias ll='ls -alF'
+
+if [ -d ~/.nvm ]; then
+  export NVM_DIR="/home/shaun/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+  export NODE_PATH=/usr/lib/nodejs:/usr/lib/node_modules:/usr/share/javascript:/home/martins/.nvm/versions/node/v5.3.0/lib/node_modules
+fi
+
+if [ -d ~/.pyenv ]; then
+  export PYENV_ROOT="$HOME/.pyenv"
+  export PATH="$PYENV_ROOT/bin:$PATH"
+  eval "$(pyenv init -)"
+fi
+
+if [ -d ~/.rbenv ]; then
+  export PATH="$HOME/.rbenv/bin:$PATH"
+  eval "$(rbenv init -)"
+  export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+fi
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+if [ -f ~/.bash_rails ]; then
+    . ~/.bash_rails
+fi
