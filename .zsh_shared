@@ -16,9 +16,9 @@ bindkey "\e[4~" end-of-line
 alias ll='ls -alF'
 
 if [ -d ~/.nvm ]; then
-  export NVM_DIR="/home/shaun/.nvm"
+  export NVM_DIR="$HOME/.nvm"
   [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-  export NODE_PATH=/usr/lib/nodejs:/usr/lib/node_modules:/usr/share/javascript:/home/martins/.nvm/versions/node/v5.3.0/lib/node_modules
+  export NODE_PATH="/usr/lib/nodejs:/usr/lib/node_modules:/usr/share/javascript:$HOME/.nvm/versions/node/v5.3.0/lib/node_modules"
 fi
 
 if [ -d ~/.pyenv ]; then
@@ -40,3 +40,7 @@ fi
 if [ -f ~/.bash_rails ]; then
     . ~/.bash_rails
 fi
+
+# If filename generation has no matches, hide error
+# This is needed to pass arguments into rake tasks
+unsetopt nomatch
