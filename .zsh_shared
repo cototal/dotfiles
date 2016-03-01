@@ -1,9 +1,6 @@
-# Define prompt
-autoload -U colors && colors
-PROMPT="%{$fg[white]%}%c %% %{$reset_color%}"
-
-# Enable ls colors
-ls --color -d . &>/dev/null 2>&1 && alias ls='ls --color=tty' || alias ls='ls -G'
+if [ -f ~/.zsh_theme ]; then
+    . ~/.zsh_theme
+fi
 
 # Use vim for editor and terminal
 export EDITOR='vim'
