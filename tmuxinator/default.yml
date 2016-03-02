@@ -1,6 +1,6 @@
 # ~/.tmuxinator/default.yml
 
-name: default
+name: <%= @args[0] %>
 root: <%= ENV["DIR"] %>
 
 # Optional tmux socket
