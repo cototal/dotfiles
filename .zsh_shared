@@ -15,7 +15,7 @@ alias ll='ls -alF'
 if [ -d ~/.nvm ]; then
   export NVM_DIR="$HOME/.nvm"
   [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-  export NODE_PATH="/usr/lib/nodejs:/usr/lib/node_modules:/usr/share/javascript:$HOME/.nvm/versions/node/v5.8.0/lib/node_modules"
+  export NODE_PATH="/usr/lib/nodejs:/usr/lib/node_modules:/usr/share/javascript:$HOME/.nvm/versions/node/v5.9.1/lib/node_modules"
 fi
 
 if [ -d ~/.pyenv ]; then
