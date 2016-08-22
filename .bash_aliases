@@ -13,7 +13,7 @@ alias git-comment="git commit --amend"
 alias cc='coffee -o lib/ -cw src/'
 
 function dmux() {
-  mux start default $1
+  tmuxinator start default $1
 }
 
 function rbenv-install() {
