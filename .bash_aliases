@@ -2,6 +2,7 @@ alias o='thunar .'
 alias shutdown='sudo shutdown -h now'
 alias apache='sudo service apache2 restart'
 alias ssh-proxy='ssh -D 1337 -f -C -q -N shaun@75.135.74.2 -p 8675'
+alias dnr='ASPNETCORE_URLS="http://0.0.0.0:5000" dotnet run'
 
 alias master='git checkout master'
 alias wacom1="xsetwacom --set 'Wacom Intuos3 9x12 pad' MapToOutput 'Virtual1'"
