@@ -15,7 +15,30 @@ alias ll='ls -alF'
 if [ -d ~/.nvm ]; then
   export NVM_DIR="$HOME/.nvm"
   [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-  export NODE_PATH="/usr/lib/nodejs:/usr/lib/node_modules:/usr/share/javascript:$HOME/.nvm/versions/node/v5.9.1/lib/node_modules"
+  export NODE_PATH="/usr/lib/nodejs:/usr/lib/node_modules:/usr/share/javascript:$HOME/.nvm/versions/node/v6.10.3/lib/node_modules"
+
+  # This seems to be a requirement for nvm to work with zsh,
+  # as documented here: https://github.com/creationix/nvm#zsh
+  autoload -U add-zsh-hook
+  load-nvmrc() {
+    local node_version="$(nvm version)"
+    local nvmrc_path="$(nvm_find_nvmrc)"
+
+    if [ -n "$nvmrc_path" ]; then
+      local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+
+      if [ "$nvmrc_node_version" = "N/A" ]; then
+	nvm install
+      elif [ "$nvmrc_node_version" != "$node_version" ]; then
+	nvm use
+      fi
+    elif [ "$node_version" != "$(nvm version default)" ]; then
+      echo "Reverting to nvm default version"
+      nvm use default
+    fi
+  }
+  add-zsh-hook chpwd load-nvmrc
+  load-nvmrc
 fi
 
 if [ -d ~/.pyenv ]; then
