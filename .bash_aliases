@@ -10,6 +10,7 @@ alias gadd='git add . -A'
 alias gamend='git add . -A && git commit --amend --no-edit'
 alias git-log="git log --max-count=15 --pretty=format:\"%h - %an, %ar : %s\""
 alias git-comment="git commit --amend"
+alias rnd="php -r 'echo bin2hex(random_bytes(40)) . \"\n\";'"
 
 alias cc='coffee -o lib/ -cw src/'
 
@@ -48,12 +49,15 @@ function coffp() {
 function gam() {
   git add . -A && git commit -m "$1"
 }
+
 function gc() {
   git checkout $1
 }
+
 function b() {
   bundle exec $*
 }
+
 function tk() {
   tmux kill-session -t $1
 }
@@ -73,4 +77,8 @@ function xfile() {
 function fdrop() {
   psql -c "SELECT pg_terminate_backend(pg_stat_activity.pid) FROM pg_stat_activity WHERE pg_stat_activity.datname = '$1' AND pid <> pg_backend_pid();"
   dropdb $1
+}
+
+function bc() {
+  ./bin/console $*
 }

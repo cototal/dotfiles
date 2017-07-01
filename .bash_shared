@@ -14,4 +14,9 @@ if [ -f ~/.bash_projects ]; then
     . ~/.bash_projects
 fi
 
+if [ -f ~/.scripts ]; then
+    export PATH="$HOME/scripts:$PATH"
+fi
+
 export EDITOR="vim"
+set -o vi
