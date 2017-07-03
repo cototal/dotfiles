@@ -7,3 +7,4 @@
 --type=nolog
 --type=nocache
 --type=nosourcemap
+--type=nosql
