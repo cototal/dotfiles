@@ -11,6 +11,7 @@ alias gamend='git add . -A && git commit --amend --no-edit'
 alias git-log="git log --max-count=15 --pretty=format:\"%h - %an, %ar : %s\""
 alias git-comment="git commit --amend"
 alias rnd="php -r 'echo bin2hex(random_bytes(40)) . \"\n\";'"
+alias bcs="./bin/console server:run 0.0.0.0"
 
 alias cc='coffee -o lib/ -cw src/'
 

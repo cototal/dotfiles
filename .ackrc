@@ -3,8 +3,10 @@
 --type-set=cache=.cache
 --type-set=haml=.haml
 --type-set=hbs=.hbs
+--type-set=meta=.meta
 
 --type=nolog
 --type=nocache
 --type=nosourcemap
 --type=nosql
+--type=nometa
