@@ -18,5 +18,8 @@ if [ -f ~/.scripts ]; then
     export PATH="$HOME/scripts:$PATH"
 fi
 
+# Set default editor to vim
 export EDITOR="vim"
+
+# Use vi mode... somewhere
 set -o vi

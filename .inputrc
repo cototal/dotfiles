@@ -1,3 +1,6 @@
+# Allows using vi mode in most terminal operations
+
+
 set editing-mode vi
 set keymap vi-command
 
