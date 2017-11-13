@@ -114,12 +114,7 @@ function bc() {
   ./bin/console $*
 }
 
-# Navigate to specific theme directory from WordPress root
-function theme() {
-  cd wp-content/themes/$1
-}
-
-# Navigate to specific plugin directory from WordPress root
-function plugin() {
-  cd wp-content/plugins/$1
+# Navigate to plugin or theme directory
+function wpd() {
+  cd wp-content/$1/$2
 }
