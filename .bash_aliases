@@ -123,3 +123,7 @@ function theme() {
 function plugin() {
   cd wp-content/plugins/$1
 }
+
+# Generate tags for PHP projects
+alias phptags='ctags -R --PHP-kinds=cfi --exclude=node_modules --exclude=var --exclude=*.js'
+
