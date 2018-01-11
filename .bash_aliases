@@ -119,6 +119,16 @@ function wpd() {
   cd wp-content/$1/$2
 }
 
+# Create a tarball
+function tb() {
+  tar -cvzf $1 $2
+}
+
+# Extract a tarball
+function untb() {
+  tar -xvzf $1
+}
+
 # Generate tags for PHP projects
 alias phptags='ctags -R --PHP-kinds=cfi --exclude=node_modules --exclude=var --exclude=*.js'
 
