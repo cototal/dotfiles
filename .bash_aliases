@@ -129,6 +129,13 @@ function untb() {
   tar -xvzf $1
 }
 
+# Watch directory and sync changes
+function rsc() {
+    while inotifywait -r -e modify,create,delete $PWD; do
+        rsync -avz ./ $1:$2
+    done
+}
+
 # Generate tags for PHP projects
 alias phptags='ctags -R --PHP-kinds=cfi --exclude=node_modules --exclude=var --exclude=*.js'
 
