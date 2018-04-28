@@ -9,9 +9,6 @@ alias apache='sudo service apache2 restart'
 # Setup proxy SSH session to forward web requests
 alias ssh-proxy='ssh -D 1337 -f -C -q -N shaun@75.135.74.2 -p 8675'
 
-# Start .NET Core project to allow remote connections
-alias dnr='ASPNETCORE_URLS="http://0.0.0.0:5000" dotnet run'
-
 alias master='git checkout master'
 
 # Checkin all files
@@ -31,6 +28,12 @@ alias rnd="php -r 'echo bin2hex(random_bytes(40)) . \"\n\";'"
 
 # Run Symfony app to allow remote connections
 alias bcs="./bin/console server:run 0.0.0.0"
+
+# Run WordPress server to allow remote connections
+alias wps="wp server --host=0.0.0.0"
+
+# Start .NET Core project to allow remote connections
+alias dnr='ASPNETCORE_URLS="http://0.0.0.0:5000" dotnet run'
 
 # Start default tmux session, vim on top with terminal below
 # Requires tmuxinator and config from 'dotfiles' repo
@@ -127,6 +130,13 @@ function tb() {
 # Extract a tarball
 function untb() {
   tar -xvzf $1
+}
+
+# Watch directory and sync changes
+function rsc() {
+    while inotifywait -r -e modify,create,delete $PWD; do
+        rsync -avz ./ $1:$2
+    done
 }
 
 # Generate tags for PHP projects
