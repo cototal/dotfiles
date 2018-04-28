@@ -4,17 +4,13 @@ fi
 
 if [ -f ~/.bash_rails ]; then
     . ~/.bash_rails
-
-    export PATH="$HOME/.rbenv/bin:$PATH"
-    eval "$(rbenv init -)"
-    export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
 fi
 
 if [ -f ~/.bash_projects ]; then
     . ~/.bash_projects
 fi
 
-if [ -f ~/.scripts ]; then
+if [ -f ~/scripts ]; then
     export PATH="$HOME/scripts:$PATH"
 fi
 
