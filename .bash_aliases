@@ -139,6 +139,15 @@ function rsc() {
     done
 }
 
+# Watch directory and lint JavaScript
+function lnt() {
+    while inotifywait -e modify,move,create,delete --exclude vendor --exclude node_modules --exclude .git $PWD; do
+        eslint .
+    done
+}
+
 # Generate tags for PHP projects
 alias phptags='ctags -R --PHP-kinds=cfi --exclude=node_modules --exclude=var --exclude=*.js'
 
+alias swd='pwd > ~/tmp/swd'
+alias lwd='cd "`cat ~/tmp/swd`"'
