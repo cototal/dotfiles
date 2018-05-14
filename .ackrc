@@ -4,6 +4,7 @@
 --type-set=haml=.haml
 --type-set=hbs=.hbs
 --type-set=meta=.meta
+--type-set=csv=.csv
 
 --type=nolog
 --type=nocache

@@ -139,6 +139,12 @@ function rsc() {
     done
 }
 
+# Generate a new rails app without
+# tests, action cable, coffeescript, spring, and turbolinks
+function new-rails() {
+    rails new $1 -T -C -P --skip-coffee --skip-spring --skip-turbolinks -d postgresql
+}
+
 # Watch directory and lint JavaScript
 function lnt() {
     while inotifywait -e modify,move,create,delete --exclude vendor --exclude node_modules --exclude .git $PWD; do
@@ -149,5 +155,7 @@ function lnt() {
 # Generate tags for PHP projects
 alias phptags='ctags -R --PHP-kinds=cfi --exclude=node_modules --exclude=var --exclude=*.js'
 
+# Save current working directory (for use between terminal sessions)
 alias swd='pwd > ~/tmp/swd'
+# Load saved working directory (for use between terminal sessions)
 alias lwd='cd "`cat ~/tmp/swd`"'
