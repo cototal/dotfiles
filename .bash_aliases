@@ -35,6 +35,9 @@ alias wps="wp server --host=0.0.0.0"
 # Start .NET Core project to allow remote connections
 alias dnr='ASPNETCORE_URLS="http://0.0.0.0:5000" dotnet run'
 
+# Force cache clear for Symfony app
+alias scc='sudo rm -rf var/cache/*'
+
 # Start default tmux session, vim on top with terminal below
 # Requires tmuxinator and config from 'dotfiles' repo
 function dmux() {
@@ -150,6 +153,12 @@ function lnt() {
     while inotifywait -e modify,move,create,delete --exclude vendor --exclude node_modules --exclude .git $PWD; do
         eslint .
     done
+}
+
+# Backup a site
+# Described here: https://www.linuxjournal.com/content/downloading-entire-web-site-wget
+function site-backup() {
+    wget --recursive --no-clobber --page-requisites --html-extension --convert-links --restrict-file-names=windows --domains $1 --no-parent $1
 }
 
 # Generate tags for PHP projects
