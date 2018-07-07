@@ -161,6 +161,16 @@ function site-backup() {
     wget --recursive --no-clobber --page-requisites --html-extension --convert-links --restrict-file-names=windows --domains $1 --no-parent $1
 }
 
+# Sym link from available to enabled for Nginx
+function nln() {
+    ln -s /etc/nginx/sites-available/$1.conf /etc/nginx/sites-enabled/$1.conf
+}
+
+# Load production console
+function pro-console() {
+    cd ~/sites/$1/current && RAILS_ENV=production bundle exec rails c
+}
+
 # Generate tags for PHP projects
 alias phptags='ctags -R --PHP-kinds=cfi --exclude=node_modules --exclude=var --exclude=*.js'
 
