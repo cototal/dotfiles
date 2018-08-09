@@ -35,6 +35,9 @@ alias wps="wp server --host=0.0.0.0"
 # Start .NET Core project to allow remote connections
 alias dnr='ASPNETCORE_URLS="http://0.0.0.0:5000" dotnet run'
 
+# Run Laravel to allow remote connections
+alias lava='php artisan serve --host=0.0.0.0'
+
 # Start default tmux session, vim on top with terminal below
 # Requires tmuxinator and config from 'dotfiles' repo
 function dmux() {
@@ -142,7 +145,7 @@ function rsc() {
 # Generate a new rails app without
 # tests, action cable, coffeescript, spring, and turbolinks
 function new-rails() {
-    rails new $1 -T -C -P --skip-coffee --skip-spring --skip-turbolinks -d postgresql
+    rails new $1 -T -C --skip-coffee --skip-spring --skip-turbolinks -d postgresql
 }
 
 # Watch directory and lint JavaScript
