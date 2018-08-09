@@ -38,6 +38,9 @@ alias dnr='ASPNETCORE_URLS="http://0.0.0.0:5000" dotnet run'
 # Run Laravel to allow remote connections
 alias lava='php artisan serve --host=0.0.0.0'
 
+# Force cache clear for Symfony app
+alias scc='sudo rm -rf var/cache/*'
+
 # Start default tmux session, vim on top with terminal below
 # Requires tmuxinator and config from 'dotfiles' repo
 function dmux() {
@@ -153,6 +156,22 @@ function lnt() {
     while inotifywait -e modify,move,create,delete --exclude vendor --exclude node_modules --exclude .git $PWD; do
         eslint .
     done
+}
+
+# Backup a site
+# Described here: https://www.linuxjournal.com/content/downloading-entire-web-site-wget
+function site-backup() {
+    wget --recursive --no-clobber --page-requisites --html-extension --convert-links --restrict-file-names=windows --domains $1 --no-parent $1
+}
+
+# Sym link from available to enabled for Nginx
+function nln() {
+    ln -s /etc/nginx/sites-available/$1.conf /etc/nginx/sites-enabled/$1.conf
+}
+
+# Load production console
+function pro-console() {
+    cd ~/sites/$1/current && RAILS_ENV=production bundle exec rails c
 }
 
 # Generate tags for PHP projects
