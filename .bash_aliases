@@ -1,5 +1,7 @@
 # Open file manager on Xubuntu
 alias o='thunar .'
+# Open file manager on Ubuntu
+alias no='nautilus .'
 
 # Really shutdown
 alias shutdown='sudo shutdown -h now'
