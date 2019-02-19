@@ -1,5 +1,7 @@
 # Open file manager on Xubuntu
 alias o='thunar .'
+# Open file manager on Ubuntu
+alias no='nautilus .'
 
 # Really shutdown
 alias shutdown='sudo shutdown -h now'
@@ -34,6 +36,9 @@ alias wps="wp server --host=0.0.0.0"
 
 # Start .NET Core project to allow remote connections
 alias dnr='ASPNETCORE_URLS="http://0.0.0.0:5000" dotnet run'
+
+# Run Laravel to allow remote connections
+alias lava='php artisan serve --host=0.0.0.0'
 
 # Force cache clear for Symfony app
 alias scc='sudo rm -rf var/cache/*'
@@ -145,7 +150,7 @@ function rsc() {
 # Generate a new rails app without
 # tests, action cable, coffeescript, spring, and turbolinks
 function new-rails() {
-    rails new $1 -T -C -P --skip-coffee --skip-spring --skip-turbolinks -d postgresql
+    rails new $1 -T -C --skip-coffee --skip-spring --skip-turbolinks -d postgresql
 }
 
 # Watch directory and lint JavaScript
@@ -159,6 +164,16 @@ function lnt() {
 # Described here: https://www.linuxjournal.com/content/downloading-entire-web-site-wget
 function site-backup() {
     wget --recursive --no-clobber --page-requisites --html-extension --convert-links --restrict-file-names=windows --domains $1 --no-parent $1
+}
+
+# Sym link from available to enabled for Nginx
+function nln() {
+    ln -s /etc/nginx/sites-available/$1.conf /etc/nginx/sites-enabled/$1.conf
+}
+
+# Load production console
+function pro-console() {
+    cd ~/sites/$1/current && RAILS_ENV=production bundle exec rails c
 }
 
 # Generate tags for PHP projects
