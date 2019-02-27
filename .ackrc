@@ -11,3 +11,7 @@
 --type=nosourcemap
 --type=nosql
 --type=nometa
+
+--ignore-dir=vendor
+--ignore-dir=var
+--ignore-dir=node_modules
