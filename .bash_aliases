@@ -179,7 +179,14 @@ function pro-console() {
 # Generate tags for PHP projects
 alias phptags='ctags -R --PHP-kinds=cfi --exclude=node_modules --exclude=var --exclude=*.js'
 
-# Save current working directory (for use between terminal sessions)
-alias swd='pwd > ~/tmp/swd'
 # Load saved working directory (for use between terminal sessions)
-alias lwd='cd "`cat ~/tmp/swd`"'
+function lwd() {
+    local name="${1:-default}"
+    cd "`cat ~/tmp/swd-$name`"
+}
+
+# Save current working directory (for use between terminal sessions)
+function swd() {
+    local name="${1:-default}"
+    pwd > ~/tmp/swd-$name
+}
