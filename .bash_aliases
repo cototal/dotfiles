@@ -190,3 +190,5 @@ function swd() {
     local name="${1:-default}"
     pwd > ~/tmp/swd-$name
 }
+
+export GLR=registry.gitlab.com/ginblades

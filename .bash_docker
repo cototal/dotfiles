@@ -1,0 +1,11 @@
+function dbash() {
+    docker exec -it $1 bash
+}
+
+function nginx-test() {
+    docker exec $1 nginx -t
+}
+
+function nginx-reload() {
+    docker exec $1 nginx -s reload
+}
