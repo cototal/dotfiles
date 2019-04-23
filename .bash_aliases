@@ -2,6 +2,8 @@
 alias o='thunar .'
 # Open file manager on Ubuntu
 alias no='nautilus .'
+# Open terminal
+alias xt=xfce4-terminal
 
 # Really shutdown
 alias shutdown='sudo shutdown -h now'
