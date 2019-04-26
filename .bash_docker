@@ -9,3 +9,5 @@ function nginx-test() {
 function nginx-reload() {
     docker exec $1 nginx -s reload
 }
+
+alias own='sudo chown -R $USER:$USER .'

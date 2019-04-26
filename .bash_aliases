@@ -25,8 +25,6 @@ alias git-log="git log --max-count=15 --pretty=format:\"%h - %an, %ar : %s\""
 # Add comment to previous commit
 alias git-comment="git commit --amend"
 
-# Generate a random string
-alias rnd="php -r 'echo bin2hex(random_bytes(40)) . \"\n\";'"
 
 # Run Symfony app to allow remote connections
 alias bcs="./bin/console server:run 0.0.0.0"
@@ -189,6 +187,13 @@ function lwd() {
 function swd() {
     local name="${1:-default}"
     pwd > ~/tmp/swd-$name
+}
+
+# Generate a random string
+function rnd() {
+    UUID=$(cat /proc/sys/kernel/random/uuid)
+    LENGTH=${1:-36}
+    echo ${UUID:0:$LENGTH}
 }
 
 export GLR=registry.gitlab.com/ginblades
