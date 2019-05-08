@@ -10,4 +10,8 @@ function nginx-reload() {
     docker exec $1 nginx -s reload
 }
 
+function dsql() {
+    docker run -it --rm --network services -v $PWD:/data -w /data $1 bash
+}
+
 alias own='sudo chown -R $USER:$USER .'
