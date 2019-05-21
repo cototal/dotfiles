@@ -200,6 +200,8 @@ function rnd() {
 
 # Countdown timer (use seconds)
 # From https://superuser.com/questions/611538/is-there-a-way-to-display-a-countdown-or-stopwatch-timer-in-a-terminal
+# When doing math with bash, escape the asterisk
+#   Example: countdown `expr 60 \* 60`
 function countdown(){
    date1=$((`date +%s` + $1));
    while [ "$date1" -ge `date +%s` ]; do
