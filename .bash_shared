@@ -14,6 +14,10 @@ if [ -f ~/.bash_docker ]; then
     . ~/.bash_docker
 fi
 
+if [ -f ~/.bash_work ]; then
+    . ~/.bash_work
+fi
+
 if [ -f ~/scripts ]; then
     export PATH="$HOME/scripts:$PATH"
 fi

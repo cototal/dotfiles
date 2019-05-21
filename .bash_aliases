@@ -198,4 +198,14 @@ function rnd() {
     echo ${UUID:0:$LENGTH}
 }
 
+# Countdown timer (use seconds)
+# From https://superuser.com/questions/611538/is-there-a-way-to-display-a-countdown-or-stopwatch-timer-in-a-terminal
+function countdown(){
+   date1=$((`date +%s` + $1));
+   while [ "$date1" -ge `date +%s` ]; do
+     echo -ne "$(date -u --date @$(($date1 - `date +%s`)) +%H:%M:%S)\r";
+     sleep 0.1
+   done
+}
+
 export GLR=registry.gitlab.com/ginblades
