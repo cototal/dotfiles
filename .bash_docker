@@ -14,4 +14,8 @@ function dsql() {
     docker run -it --rm --network services -v $PWD:/data -w /data $1 bash
 }
 
+function drnd() {
+    docker run -it --rm ruby:2.6 ruby -e 'require "securerandom";puts SecureRandom.urlsafe_base64(64)'
+}
+
 alias own='sudo chown -R $USER:$USER .'
