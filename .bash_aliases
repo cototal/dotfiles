@@ -209,5 +209,3 @@ function countdown(){
      sleep 0.1
    done
 }
-
-export GLR=registry.gitlab.com/ginblades
