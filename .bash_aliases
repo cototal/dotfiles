@@ -198,6 +198,11 @@ function rnd() {
     echo ${UUID:0:$LENGTH}
 }
 
+function srnd() {
+    LENGTH=${1:-24}
+    ruby -e "require 'securerandom'; puts SecureRandom.urlsafe_base64(${LENGTH})"
+}
+
 # Countdown timer (use seconds)
 # From https://superuser.com/questions/611538/is-there-a-way-to-display-a-countdown-or-stopwatch-timer-in-a-terminal
 # When doing math with bash, escape the asterisk
