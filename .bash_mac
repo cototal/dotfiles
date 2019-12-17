@@ -1,0 +1,72 @@
+# I think this makes vi mode work in the terminal
+set -o vi
+
+function srnd() {
+    LENGTH=${1:-24}
+    ruby -e "require 'securerandom'; puts SecureRandom.urlsafe_base64(${LENGTH})"
+}
+
+# Load saved working directory (for use between terminal sessions)
+function lwd() {
+    local name="${1:-default}"
+    cd "`cat ~/.tmp/swd-$name`"
+}
+
+# Save current working directory (for use between terminal sessions)
+function swd() {
+    local name="${1:-default}"
+    pwd > ~/.tmp/swd-$name
+}
+
+# Search processes for name
+function psg() {
+  ps -ax | grep -i $1
+}
+
+# Make directory and navigate into it
+function mc() {
+  mkdir $1 && cd $_
+}
+
+# List size of subdirectories in human-readable format
+function folder-size() {
+  du -h --max-depth=1 $1
+}
+
+# Backup a site
+# Described here: https://www.linuxjournal.com/content/downloading-entire-web-site-wget
+function site-backup() {
+    wget --recursive --no-clobber --page-requisites --html-extension --convert-links --restrict-file-names=windows --domains $1 --no-parent $1
+}
+
+# Start Mongo Client
+# (provide password as argument)
+function dmongo() {
+    docker run -it --rm --network services mongo mongo mongodb://root:$1@mongo/token_test?authSource=admin
+}
+
+#region Git
+# Switch to master branch
+alias master='git checkout master'
+
+# Checkin all files
+alias gadd='git add . -A'
+
+# Amend all changes to previous commit
+alias gamend='git add . -A && git commit --amend --no-edit'
+
+# Pretty format gitlog
+alias git-log="git log --max-count=15 --pretty=format:\"%h - %an, %ar : %s\""
+
+# Add comment to previous commit
+alias git-comment="git commit --amend"
+# Commit all changes with message
+function gam() {
+  git add . -A && git commit -m "$1"
+}
+
+# Checkout a branch
+function gc() {
+  git checkout $1
+}
+#endregion
