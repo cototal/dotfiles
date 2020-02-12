@@ -1,3 +1,11 @@
+if [[ -f ~/.bash_work ]]; then
+  . ~/.bash_work
+fi
+
+if [[ -f ~/.bash_docker ]]; then
+  . ~/.bash_docker
+fi
+
 # I think this makes vi mode work in the terminal
 set -o vi
 
@@ -9,13 +17,13 @@ function srnd() {
 # Load saved working directory (for use between terminal sessions)
 function lwd() {
     local name="${1:-default}"
-    cd "`cat ~/.tmp/swd-$name`"
+    cd "`cat ~/tmp/swd-$name`"
 }
 
 # Save current working directory (for use between terminal sessions)
 function swd() {
     local name="${1:-default}"
-    pwd > ~/.tmp/swd-$name
+    pwd > ~/tmp/swd-$name
 }
 
 # Search processes for name
@@ -39,11 +47,7 @@ function site-backup() {
     wget --recursive --no-clobber --page-requisites --html-extension --convert-links --restrict-file-names=windows --domains $1 --no-parent $1
 }
 
-# Start Mongo Client
-# (provide password as argument)
-function dmongo() {
-    docker run -it --rm --network services mongo mongo mongodb://root:$1@mongo/token_test?authSource=admin
-}
+alias ll='ls -la'
 
 #region Git
 # Switch to master branch
@@ -68,5 +72,26 @@ function gam() {
 # Checkout a branch
 function gc() {
   git checkout $1
+}
+#endregion
+
+#region Symfony
+# Run Symfony app in the foreground
+function symrun() {
+    local port="${1:-8000}"
+    php -S localhost:$port -t public/
+}
+
+# Run Symfony app in the background
+function symstart() {
+    local port="${1:-8000}"
+    nohup php -S localhost:$port -t public/ > var/log/phpd.log 2>&1 &
+    echo $! > var/log/phpd-pid
+}
+
+# Stop running Symfony app
+function symstop() {
+    kill -3 `cat var/log/phpd-pid`
+    rm var/log/phpd-pid
 }
 #endregion

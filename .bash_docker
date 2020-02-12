@@ -18,4 +18,10 @@ function drnd() {
     docker run -it --rm ruby:2.6 ruby -e 'require "securerandom";puts SecureRandom.urlsafe_base64(64)'
 }
 
+# Start Mongo Client
+# (provide password as argument)
+function dmongo() {
+    docker run -it --rm --network services mongo mongo mongodb://root:$1@mongo/token_test?authSource=admin
+}
+
 alias own='sudo chown -R $USER:$USER .'
