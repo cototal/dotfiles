@@ -2,6 +2,14 @@ function dbash() {
     docker exec -it $1 bash
 }
 
+function dd() {
+    docker exec -it -u=developer $1 bash
+}
+
+function dp() {
+    docker run -d -v ${PWD}:/app -p $2:80 --network services --name $1 phpdev
+}
+
 function nginx-test() {
     docker exec $1 nginx -t
 }
