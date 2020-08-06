@@ -1,9 +1,15 @@
+export SCRIPT_DIR=$HOME/Projects/scripts
+
 if [[ -f ~/.bash_work ]]; then
   . ~/.bash_work
 fi
 
 if [[ -f ~/.bash_docker ]]; then
   . ~/.bash_docker
+fi
+
+if [[ -f ~/.bash_php ]]; then
+  . ~/.bash_php
 fi
 
 # I think this makes vi mode work in the terminal
@@ -72,26 +78,5 @@ function gam() {
 # Checkout a branch
 function gc() {
   git checkout $1
-}
-#endregion
-
-#region Symfony
-# Run Symfony app in the foreground
-function symrun() {
-    local port="${1:-8000}"
-    php -S localhost:$port -t public/
-}
-
-# Run Symfony app in the background
-function symstart() {
-    local port="${1:-8000}"
-    nohup php -S localhost:$port -t public/ > var/log/phpd.log 2>&1 &
-    echo $! > var/log/phpd-pid
-}
-
-# Stop running Symfony app
-function symstop() {
-    kill -3 `cat var/log/phpd-pid`
-    rm var/log/phpd-pid
 }
 #endregion

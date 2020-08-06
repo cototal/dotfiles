@@ -18,8 +18,13 @@ if [ -f ~/.bash_work ]; then
     . ~/.bash_work
 fi
 
+if [ -f ~/.bash_php ]; then
+    . ~/.bash_php
+fi
+
 if [ -f ~/scripts ]; then
-    export PATH="$HOME/scripts:$PATH"
+    export SCRIPT_DIR=$HOME/scripts
+    export PATH="$SCRIPT_DIR:$PATH"
 fi
 
 # Set default editor to vim
