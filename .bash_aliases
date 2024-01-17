@@ -9,6 +9,7 @@ alias xt=xfce4-terminal
 alias shutdown='sudo shutdown -h now'
 
 alias apache='sudo service apache2 restart'
+alias hostlist="find /etc/apache2/sites-enabled/ -name '*.conf' | xargs grep Listen"
 
 # Setup proxy SSH session to forward web requests
 alias ssh-proxy='ssh -D 1337 -f -C -q -N shaun@75.135.74.2 -p 8675'
