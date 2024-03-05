@@ -10,7 +10,7 @@ function dp() {
     docker run -d -v ${PWD}:/app -v ${PWD}/var:/app/var:delegated \
         -v ${PWD}/vendor:/app/vendor:cached \
         -v ${PWD}/node_modules:/app/node_modules:cached \
-        -p $2:80 --network services --name $1 cototal/php-dev:b215676
+        -p $2:80 --network primary --name $1 cototal/php-dev:b215676
 }
 
 function nginx-test() {
@@ -22,17 +22,21 @@ function nginx-reload() {
 }
 
 function dsql() {
-    docker run -it --rm --network services -v $PWD:/data -w /data $1 bash
-}
-
-function drnd() {
-    docker run -it --rm ruby:2.6 ruby -e 'require "securerandom";puts SecureRandom.urlsafe_base64(64)'
+    docker run -it --rm --network primary -v $PWD:/data -w /data $1 bash
 }
 
 # Start Mongo Client
 # (provide password as argument)
 function dmongo() {
-    docker run -it --rm --network services mongo mongo mongodb://root:$1@mongo/token_test?authSource=admin
+    docker run -it --rm --network primary mongo mongo mongodb://root:$1@mongo/token_test?authSource=admin
 }
 
 alias own='sudo chown -R $USER:$USER .'
+
+export DOCKER_COMPOSE_STANDARD='docker-compose.yml'
+
+alias dcup='docker compose -f $DOCKER_COMPOSE_STANDARD up -d'
+alias dcdown='docker compose -f $DOCKER_COMPOSE_STANDARD down'
+alias dcbuild='docker compose -f $DOCKER_COMPOSE_STANDARD build'
+alias dcbash='docker compose -f $DOCKER_COMPOSE_STANDARD exec -it -u=developer app bash'
+alias dcrbash='docker compose -f $DOCKER_COMPOSE_STANDARD exec -it app bash'
