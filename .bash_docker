@@ -13,6 +13,8 @@ function dp() {
         -p $2:80 --network primary --name $1 cototal/php-dev:b215676
 }
 
+alias dr='docker restart $(docker ps -q)'
+
 function nginx-test() {
     docker exec $1 nginx -t
 }
