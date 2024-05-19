@@ -183,13 +183,10 @@ alias phptags='ctags -R --PHP-kinds=cfi --exclude=node_modules --exclude=var --e
 # Load saved working directory (for use between terminal sessions)
 function lwd() {
     local name="${1:-default}"
-    cd "`cat ~/tmp/swd-$name`"
-}
-
-# Save current working directory (for use between terminal sessions)
-function swd() {
-    local name="${1:-default}"
-    pwd > ~/tmp/swd-$name
+    local path=$(swd -l $name)
+    if [ $? -eq 0 ]; then
+        cd $path
+    fi
 }
 
 # Generate a random string
