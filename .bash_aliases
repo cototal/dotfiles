@@ -44,6 +44,9 @@ alias lava='php artisan serve --host=0.0.0.0'
 # Force cache clear for Symfony app
 alias scc='sudo rm -rf var/cache/*'
 
+# Load .env file in current directory to environment variables
+alias loadenv='set -a; source .env; set +a'
+
 # Start default tmux session, vim on top with terminal below
 # Requires tmuxinator and config from 'dotfiles' repo
 function dmux() {
