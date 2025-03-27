@@ -28,6 +28,8 @@ alias git-log="git log --max-count=15 --pretty=format:\"%h - %an, %ar : %s\""
 # Add comment to previous commit
 alias git-comment="git commit --amend"
 
+# Activate Python virtual environment with venv
+alias act="source ./venv/bin/activate"
 
 # Run Symfony app to allow remote connections
 alias bcs="./bin/console server:run 0.0.0.0"
