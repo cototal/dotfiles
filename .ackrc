@@ -15,3 +15,4 @@
 --ignore-dir=vendor
 --ignore-dir=var
 --ignore-dir=node_modules
+--ignore-dir=.venv

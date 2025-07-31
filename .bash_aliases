@@ -1,3 +1,4 @@
+alias pycharm='/opt/pycharm-2025.1.3.1/bin/pycharm.sh'
 # Open file manager on Xubuntu
 alias o='thunar .'
 # Open file manager on Ubuntu
@@ -29,7 +30,7 @@ alias git-log="git log --max-count=15 --pretty=format:\"%h - %an, %ar : %s\""
 alias git-comment="git commit --amend"
 
 # Activate Python virtual environment with venv
-alias act="source ./venv/bin/activate"
+alias act="source ./.venv/bin/activate"
 
 # Run Symfony app to allow remote connections
 alias bcs="./bin/console server:run 0.0.0.0"
